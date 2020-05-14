@@ -1,7 +1,23 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# frozen_string_literal: true
+
+require 'open-uri'
+require 'faker'
+
+10.times do
+  rental = Rental.create(
+    title: "#{Faker::Appliance.brand} #{Faker::Appliance.equipment}",
+    owner: Faker::Name.name,
+    city: Faker::Address.city,
+    category: Rental::CATEGORIES.sample,
+    bedrooms: (1..5).to_a.sample,
+    description: Faker::Hipster.sentence
+  )
+
+  image_url = "https://http.cat/#{Rack::Utils::HTTP_STATUS_CODES.keys.sample}.jpg"
+  filename = File.basename(URI.parse(image_url).path)
+  begin
+    image = URI.open(image_url)
+    rental.image.attach io: image, filename: filename
+  rescue OpenURI::HTTPError => e
+  end
+end
