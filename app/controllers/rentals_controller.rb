@@ -4,7 +4,7 @@ class RentalsController < JSONAPI::ResourceController
   include JSONAPI::Utils
 
   def index
-    @rentals = Rental.all
+    @rentals = Rental.includes(image_attachment: :blob).all
     if params[:city]
       @rentals = @rentals.where('city LIKE ?', "%#{params[:city]}%")
     end
