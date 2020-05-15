@@ -5,7 +5,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'jsonapi-resources'
+gem 'jsonapi-resources', '= 0.9.11'
+gem 'jsonapi-utils', '~> 0.7.3'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'puma', '~> 3.11'
 gem 'rack-cors'
