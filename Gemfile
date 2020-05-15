@@ -8,11 +8,12 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jsonapi-resources'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'puma', '~> 3.11'
+gem 'rack-cors'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 
 group :development, :test do
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'faker', '~> 1.9.0', require: false
+  gem 'pry'
   gem 'rspec-rails'
 end
 

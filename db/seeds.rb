@@ -18,6 +18,7 @@ require 'faker'
   begin
     image = URI.open(image_url)
     rental.image.attach io: image, filename: filename
-  rescue OpenURI::HTTPError => e
+  rescue OpenURI::HTTPError
+    puts "Rental with id #{rental.id} does not have an image"
   end
 end
