@@ -3,6 +3,8 @@
 class RentalResource < JSONAPI::Resource
   attributes :title, :city, :owner, :category, :bedrooms, :description, :image
 
+  filter :search, apply: ->(records, value, _options) { records.where('city LIKE ?', "%#{value.first}%") }
+
   def image
     return unless @model.image.attached?
 
