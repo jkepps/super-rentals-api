@@ -7,7 +7,7 @@ ruby '2.7.1'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jsonapi-resources', '= 0.9.11'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 gem 'rack-cors'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 
